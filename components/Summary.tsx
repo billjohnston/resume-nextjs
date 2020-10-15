@@ -12,8 +12,11 @@ const Summary = (): ReactElement => (
             advocate. First engineering employee at two start-ups, built their
             application, infrastructure and engineering teams. Check out for the
             source for my resume{' '}
-            <Link href="https://github.com/billjohnston/resume-nextjs">
-                client
+            <Link
+                target="_blank"
+                href="https://github.com/billjohnston/resume-nextjs"
+            >
+                React/Nextjs client
             </Link>{' '}
             and a simple infrastructure as code{' '}
             <Link
@@ -22,6 +25,7 @@ const Summary = (): ReactElement => (
             >
                 AWS CDK web host
             </Link>
+            .
         </Typography>
     </ResumeSection>
 )
