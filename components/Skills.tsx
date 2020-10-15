@@ -26,6 +26,7 @@ const skills = [
     'Elasticsearch',
     'FFmpeg',
     'Streaming Media',
+    'Jest',
 ]
 
 const Skills = (): ReactElement => (
