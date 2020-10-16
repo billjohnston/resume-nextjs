@@ -1,12 +1,13 @@
-import { ReactElement } from 'react'
+import { FunctionComponent } from 'react'
+
 import ExperienceItem from 'components/ExperienceItem'
 
 const accomplishments = [
-    'Built marketing applications for artists including Third Eye Blind and Florence and the Machine',
-    'Created a CMS using Wordpress to generate common PR applications, still in use today',
+    'Built custom marketing applications for artists including Third Eye Blind and Florence and the Machine',
+    'Created a CMS to generate common marketing applications using Wordpress; still in use today',
 ]
 
-const ExperienceSneakAttackMedia = (): ReactElement => (
+const ExperienceSneakAttackMedia: FunctionComponent = () => (
     <ExperienceItem
         company="Sneak Attack Media"
         position="FullStack Developer"

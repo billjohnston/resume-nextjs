@@ -1,11 +1,11 @@
-import { ReactElement, useEffect } from 'react'
+import { FunctionComponent, useEffect } from 'react'
 import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from 'styles/theme'
 import type { AppProps } from 'next/app'
 
-const App = ({ Component, pageProps }: AppProps): ReactElement => {
+const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
     useEffect(() => {
         // Remove the server-side injected CSS.
         const jssStyles = document.querySelector('#jss-server-side')

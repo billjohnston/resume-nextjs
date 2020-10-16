@@ -1,14 +1,15 @@
-import { ReactElement } from 'react'
+import { FunctionComponent } from 'react'
+
 import ExperienceItem from 'components/ExperienceItem'
 
 const accomplishments = [
-    'First developer hired, helped grow to team of 15',
-    'Managed front end team of 4 developers',
-    'Built REST Api using Python and Django',
-    'Built web client in both Angular and React',
+    'First developer hired; helped grow the engineering team to 15',
+    'Managed the Front-end team of 4 developers',
+    'Built the REST Api using Python and Django',
+    'Built the web client using both Angular and React',
 ]
 
-const ExperienceReelio = (): ReactElement => (
+const ExperienceReelio: FunctionComponent = () => (
     <ExperienceItem
         company="Reelio"
         position="FullStack Developer"

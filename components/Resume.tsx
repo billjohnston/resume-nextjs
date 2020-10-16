@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { FunctionComponent } from 'react'
 
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
@@ -9,7 +9,7 @@ import Experience from 'components/Experience'
 import Education from 'components/Education'
 import Skills from 'components/Skills'
 
-const Resume = (): ReactElement => {
+const Resume: FunctionComponent = () => {
     return (
         <Container maxWidth="md">
             <Box pt={1} pb={4} display="flex" flex={1} flexDirection="column">

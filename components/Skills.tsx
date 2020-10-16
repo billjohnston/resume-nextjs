@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { FunctionComponent } from 'react'
 
 import Typography from '@material-ui/core/Typography'
 
@@ -29,7 +29,7 @@ const skills = [
     'Jest',
 ]
 
-const Skills = (): ReactElement => (
+const Skills: FunctionComponent = () => (
     <ResumeSection title="Skills">
         <Typography variant="body1">{skills.join(' • ')}</Typography>
     </ResumeSection>

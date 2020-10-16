@@ -1,20 +1,23 @@
-import { ReactElement } from 'react'
+import { FunctionComponent } from 'react'
+
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 
-const ExperienceItem = ({
-    company,
-    position,
-    dateRange,
-    summary,
-    accomplishments,
-}: {
+type ExperienceItem = {
     company: string
     position: string
     dateRange: string
     summary: string
     accomplishments: string[]
-}): ReactElement => (
+}
+
+const ExperienceItem: FunctionComponent<ExperienceItem> = ({
+    company,
+    position,
+    dateRange,
+    summary,
+    accomplishments,
+}) => (
     <Box pb={1}>
         <Box
             display="flex"
