@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-
+import dayjs from 'dayjs'
 import ExperienceItem from 'components/ExperienceItem'
 
 const accomplishments = [
@@ -9,11 +9,15 @@ const accomplishments = [
     'Built the web client using both Angular and React',
 ]
 
+const startDate = dayjs('2013-03')
+const endDate = dayjs('2018-04')
+
 const ExperienceReelio: FunctionComponent = () => (
     <ExperienceItem
         company="Reelio"
         position="FullStack Developer"
-        dateRange="Mar 2013 - Apr 2018 (5 years 2 months)"
+        startDate={startDate}
+        endDate={endDate}
         summary="Influencer marketing management application"
         accomplishments={accomplishments}
     />

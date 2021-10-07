@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-
+import dayjs from 'dayjs'
 import ExperienceItem from 'components/ExperienceItem'
 
 const accomplishments = [
@@ -12,11 +12,15 @@ const accomplishments = [
     'Built the search microservice using Lambda, Api Gateway, and Elasticsearch',
 ]
 
+const startDate = dayjs('2019-01')
+const endDate = dayjs('2020-09')
+
 const ExperienceQuadio: FunctionComponent = () => (
     <ExperienceItem
         company="Quadio"
         position="CTO"
-        dateRange="Jan 2019 - Sep 2020 (1 year 9 months)"
+        startDate={startDate}
+        endDate={endDate}
         summary="Music streaming application for emerging artists"
         accomplishments={accomplishments}
     />

@@ -1,12 +1,16 @@
 import { FunctionComponent } from 'react'
+import { Dayjs } from 'dayjs'
 
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
+import DateRange from './DateRange'
 
 type ExperienceItem = {
     company: string
     position: string
-    dateRange: string
+    startDate: Dayjs
+    endDate: Dayjs
+    currentEmployer?: boolean
     summary: string
     accomplishments: string[]
 }
@@ -14,7 +18,9 @@ type ExperienceItem = {
 const ExperienceItem: FunctionComponent<ExperienceItem> = ({
     company,
     position,
-    dateRange,
+    startDate,
+    endDate,
+    currentEmployer = false,
     summary,
     accomplishments,
 }) => (
@@ -28,7 +34,13 @@ const ExperienceItem: FunctionComponent<ExperienceItem> = ({
                 {company} | {position}
             </Typography>
             <Box lineHeight={{ sm: 1.85 }} ml={{ sm: 2 }}>
-                <Typography variant="caption">{dateRange}</Typography>
+                <Typography variant="caption">
+                    <DateRange
+                        startDate={startDate}
+                        endDate={endDate}
+                        present={currentEmployer}
+                    />
+                </Typography>
             </Box>
         </Box>
         <Typography variant="body1">{summary}</Typography>
