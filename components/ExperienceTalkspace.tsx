@@ -7,7 +7,7 @@ const accomplishments = [
     'Built video call transcription service using AWS StepFunctions, ECS, Lambda, Typescript',
     'Built multi-region scheduled job service using AWS Event Rules, Lambda, DynamoDB, API Gateway, and React Admin',
     'Built SAML single sign on service using AWS Cognito, Lambda',
-    'Migrated custom authentication services to AWS Cognito',
+    'Migrated custom authentication to AWS Cognito',
 ]
 
 const startDate = dayjs('2020-12')
