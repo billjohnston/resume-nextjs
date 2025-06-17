@@ -1,7 +1,7 @@
-import { FunctionComponent, useEffect } from 'react'
+import { FunctionComponent, useEffect, StrictMode } from 'react' // Import StrictMode
 import Head from 'next/head'
-import { ThemeProvider } from '@material-ui/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 import theme from 'styles/theme'
 import type { AppProps } from 'next/app'
 
@@ -15,7 +15,7 @@ const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
     }, [])
 
     return (
-        <>
+        <StrictMode> {/* Wrap your application with StrictMode */}
             <Head>
                 <title>Bill Johnston</title>
                 <meta
@@ -28,7 +28,7 @@ const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
                 {/* eslint-disable-next-line react/jsx-props-no-spreading */}
                 <Component {...pageProps} />
             </ThemeProvider>
-        </>
+        </StrictMode>
     )
 }
 

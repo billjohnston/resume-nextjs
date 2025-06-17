@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 
-import Container from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box'
+import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
 
 import Header from 'components/Header'
 import Summary from 'components/Summary'

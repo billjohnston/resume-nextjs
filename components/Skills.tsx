@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react'
 
-import Typography from '@material-ui/core/Typography'
+import Typography from '@mui/material/Typography'
 
 import ResumeSection from 'components/ResumeSection'
 
@@ -8,9 +8,9 @@ const skills = [
     'AWS',
     'AWS CDK',
     'Cloudformation',
+    'TypeScript',
     'Javascript',
     'Node.js',
-    'TypeScript',
     'Dynamodb',
     'ECS',
     'Docker',
@@ -22,10 +22,9 @@ const skills = [
     'React Native',
     'Material UI',
     'Cognito',
-    'Amplify',
     'Elasticsearch',
     'FFmpeg',
-    'Streaming Media',
+    'Audio / Video Streaming',
     'Jest',
 ]
 

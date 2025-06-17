@@ -7,7 +7,7 @@ const accomplishments = [
     'Built CI/CD and infrastructure as code using AWS CDK and Github Actions',
     'Built the music streaming web application using React',
     'Built the music streaming mobile application using React Native',
-    'Built the REST Api using AWS ECS Python and Django',
+    'Built the REST API using AWS ECS, Python, and Django',
     'Built the media transcoding microservice using AWS StepFunctions, ECS, Lambda, Typescript, and FFMPEG',
     'Built the search microservice using Lambda, Api Gateway, and Elasticsearch',
 ]

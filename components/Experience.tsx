@@ -7,9 +7,11 @@ import ExperienceQuadio from 'components/ExperienceQuadio'
 import ExperienceFullscreen from 'components/ExperienceFullscreen'
 import ExperienceReelio from 'components/ExperienceReelio'
 import ExperienceSneakAttackMedia from 'components/ExperienceSneakAttackMedia'
+import ExperienceMaxRetail from 'components/ExperienceMaxRetail'
 
 const Experience: FunctionComponent = () => (
     <ResumeSection title="Experience">
+        <ExperienceMaxRetail />
         <ExperienceTalkspace />
         <ExperienceQuadio />
         <ExperienceFullscreen />

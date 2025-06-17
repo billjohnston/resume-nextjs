@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react'
 import { Dayjs } from 'dayjs'
 
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
 import DateRange from './DateRange'
 
 type ExperienceItem = {

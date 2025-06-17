@@ -1,11 +1,12 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, ReactNode } from 'react' // Import ReactNode
 
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
-import Divider from '@material-ui/core/Divider'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Divider from '@mui/material/Divider'
 
 type ResumeSectionProps = {
     title: string
+    children: ReactNode // Add children prop
 }
 
 const ResumeSection: FunctionComponent<ResumeSectionProps> = ({

@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-import Typography from '@material-ui/core/Typography'
+import Typography from '@mui/material/Typography'
 
 dayjs.extend(duration)
 
