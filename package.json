@@ -6,7 +6,8 @@
     "dev": "next dev -p 8686",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && next export && aws s3 sync ./out s3://billresumewebhost-content88381566-geala1lrrv9e --profile BillResumeAdmin && aws cloudfront create-invalidation --distribution-id E2XQF0129O1P2E --paths \"/*\" --profile BillResumeAdmin"
+    "deploy": "next build && next export && aws s3 sync ./out s3://billresumewebhost-content88381566-geala1lrrv9e --profile BillResumeAdmin && aws cloudfront create-invalidation --distribution-id E2XQF0129O1P2E --paths \"/*\" --profile BillResumeAdmin",
+    "deploy:cdk": "yarn build && next export && npm --prefix infra install && npm --prefix infra run deploy -- --profile BillResumeAdmin --context exportPath=../out"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
