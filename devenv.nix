@@ -32,8 +32,12 @@ in
     pkgs-unstable.claude-code
     pkgs-unstable.gemini-cli
   ];
-  languages.javascript.enable = true;
-  languages.javascript.yarn.enable = true;
+  languages.javascript = {
+    enable = true;
+    bun = {
+      enable = true;
+    };
+  };
 
   enterShell = ''
     # Exit immediately if the .env.devenv file already exists.

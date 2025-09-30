@@ -1,5 +1,5 @@
 {
-  "name": "resume-nextjs-infra",
+  "name": "@resume/infra",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,12 +13,14 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.162.0",
-    "constructs": "^10.3.0"
+    "constructs": "^10.3.0",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "aws-cdk": "^2.162.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "@types/node": "^20.17.5"
-  }
+  },
+  "packageManager": "bun@1.1.22"
 }

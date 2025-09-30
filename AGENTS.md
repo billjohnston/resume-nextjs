@@ -1,37 +1,39 @@
 # Repository Guidelines
 
-This Next.js workspace powers a statically exported resume site. Use the notes below to keep contributions deployable and predictable.
+This Bun monorepo contains the Next.js resume client and its AWS CDK infrastructure. Use the steps below to keep workspaces healthy and deployments predictable.
 
 ## Project Structure & Module Organization
-- `pages/` contains Next.js entrypoints (`index.tsx`, `_app.tsx`, `_document.tsx`); localize routing and HTML shell changes here.
-- `components/` holds resume sections and shared widgets. Favor typed, prop-driven components over stateful singletons.
-- `styles/theme.js` defines the Material UI theme; extend palettes and typography there instead of inlining values.
-- `public/` stores static assets (favicon, future images) referenced via `/asset-name`.
-- `infra/` is a TypeScript CDK app that provisions the S3 website bucket. Run infrastructure work inside this folder.
+- `apps/web/` holds the Next.js app (components, pages, public assets, theme). Keep UI logic scoped here.
+- `apps/web/styles/` centralizes theming; prefer Material UI tokens over ad-hoc colors.
+- `infra/` contains the CDK stack that provisions the static website bucket and handles asset uploads.
+- Root configuration files (`devenv.*`, `.gitignore`, `package.json`) orchestrate workspace tooling.
 
 ## Build, Test, and Development Commands
-- `yarn dev` — start the Next.js dev server on port 8686 with fast refresh.
-- `yarn build` — compile the production bundle; run before every PR or deployment.
-- `yarn start` — serve the compiled bundle to mirror production.
-- `yarn deploy:cdk` — build, export, install infra deps, then run `cdk deploy --profile BillResumeAdmin --context exportPath=../out`.
-- `yarn deploy` — legacy script that exports the site and syncs to S3 + CloudFront. Prefer `yarn deploy:cdk` for new environments.
+- `bun install` — install dependencies across every workspace (run after pulling changes).
+- `bun run dev` — start the web client on port 8686 via the `apps/web` workspace.
+- `bun run build` — compile the production bundle for the web client.
+- `bun run export` — run `next export` to emit static assets into `apps/web/out/`.
+- `bun run deploy:cdk` — build + export the site, ensure infra deps are installed, and deploy the CDK stack using `infra/.env`.
+- Legacy: `bun --cwd apps/web run deploy:legacy` still pushes directly to S3/CloudFront when needed.
 
 ## Coding Style & Naming Conventions
-- TypeScript interfaces, props, and components use PascalCase (`ExperienceItemProps`, `Resume`).
-- Co-locate component-specific styles with React components and use theme tokens or `@mui/material` styling helpers.
-- Format via `npx eslint .` and `npx prettier --check .`; configs extend Airbnb + Prettier defaults.
+- Use PascalCase for React components and TypeScript interfaces (`ResumeSection`, `ExperienceItemProps`).
+- Favor functional, prop-driven components; avoid singleton state.
+- Run `bun --cwd apps/web run lint` and `bun --cwd apps/web run format` before committing; extend lint/format configs as needed.
 
 ## Testing Guidelines
-- Automated tests are absent today. Add new Jest + React Testing Library suites under `components/__tests__/` when contributing features.
-- Smoke test with `yarn dev` during development and `yarn build && yarn start` before shipping.
-- Document a manual test plan in PR descriptions until automated coverage is in place.
+- Introduce Jest + React Testing Library suites under `apps/web/components/__tests__/` for new features.
+- Smoke test interactively with `bun run dev`, then validate production parity via `bun run build && bun run start`.
+- Document manual test plans in PRs until automated coverage exists.
 
 ## Commit & Pull Request Guidelines
-- Follow the existing log style: short, imperative subjects (`Add jest`, `text fix`), one logical change per commit.
-- PRs should explain intent, list validation steps, and attach screenshots for UI updates.
-- Link relevant Jira/GitHub issues and flag any production-impacting changes (e.g., requires `cdk deploy`).
+- Follow the existing short, imperative commit format (`Add jest`, `text fix`), grouping related work together.
+- Pull requests should summarize intent, list verification steps, and include screenshots for UI changes.
+- Reference tracking tickets and highlight deployment impact (e.g., requires `bun run deploy:cdk`).
 
 ## Infrastructure Workflow
-- From `infra/`, run `npm install` once, then `npm run synth` to validate and `npm run deploy` to provision the S3 website bucket.
-- The stack uploads `../out` if it exists; run `yarn build && next export` first or pass `--context exportPath=path/to/export`.
-- Stack outputs surface the bucket name and website URL; share them with stakeholders after deployment.
+- Copy `infra/.env.example` to `infra/.env` and populate `DOMAIN_NAME`, `CERTIFICATE_ARN`, plus optional `EXPORT_PATH` (defaults to `apps/web/out`).
+- The CDK stack uploads `apps/web/out` by default; override with `EXPORT_PATH` or `--context exportPath=relative/path` when needed.
+- CLI `--context domainName=` / `certificateArn=` / `exportPath=` flags override `.env` values for ad-hoc deployments.
+- `bun --cwd infra run synth` validates templates, and `bun --cwd infra run destroy` tears down the stack if required.
+- Ensure the chosen AWS profile has S3, CloudFront, and (optionally) Route 53 permissions before running deployment commands.

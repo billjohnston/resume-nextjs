@@ -1,37 +1,20 @@
 {
-  "name": "resume-nextjs",
+  "name": "resume-monorepo",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "bun@1.1.22",
+  "workspaces": [
+    "apps/*",
+    "infra"
+  ],
   "scripts": {
-    "dev": "next dev -p 8686",
-    "build": "next build",
-    "start": "next start",
-    "deploy": "next build && next export && aws s3 sync ./out s3://billresumewebhost-content88381566-geala1lrrv9e --profile BillResumeAdmin && aws cloudfront create-invalidation --distribution-id E2XQF0129O1P2E --paths \"/*\" --profile BillResumeAdmin",
-    "deploy:cdk": "yarn build && next export && npm --prefix infra install && npm --prefix infra run deploy -- --profile BillResumeAdmin --context exportPath=../out"
+    "dev": "bun --cwd apps/web run dev",
+    "build": "bun --cwd apps/web run build",
+    "start": "bun --cwd apps/web run start",
+    "export": "bun --cwd apps/web run export",
+    "deploy:cdk": "bun run --filter @resume/web build && bun run --filter @resume/infra cdk deploy -- --profile cdk --context stage=production"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^7.1.1",
-    "@mui/material": "^7.1.1",
-    "@types/node": "^24.0.3",
-    "@types/react": "^19.1.8",
-    "@typescript-eslint/eslint-plugin": "^8.34.1",
-    "@typescript-eslint/parser": "^8.34.1",
-    "dayjs": "^1.11.13",
-    "eslint": "^9.29.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-import-resolver-typescript": "^4.4.3",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.5.0",
-    "eslint-plugin-react": "^7.37.5",
-    "next": "^15.3.3",
-    "prettier": "^3.5.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "typescript": "^5.8.3"
-  },
-  "devDependencies": {}
+    "zod": "^4.1.11"
+  }
 }

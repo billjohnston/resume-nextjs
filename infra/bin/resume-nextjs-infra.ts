@@ -6,7 +6,7 @@ const app = new cdk.App();
 
 new ResumeNextjsInfraStack(app, 'ResumeNextjsInfraStack', {
   env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: process.env.CDK_DEFAULT_REGION,
+    account: '829151516027',
+    region: 'us-east-1',
   },
 });
