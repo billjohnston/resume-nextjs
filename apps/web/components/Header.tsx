@@ -23,6 +23,11 @@ const Header: FunctionComponent = () => (
                 </Link>
             </Typography>
             <Typography variant="subtitle1">
+                <Link target="_blank" href="https://www.linkedin.com/in/bill-johnston-7549ab16/">
+                    linkedin.com/in/bill-johnston-7549ab16
+                </Link>
+            </Typography>
+            <Typography variant="subtitle1">
                 <Link href="tel:516-835-1132">(516) 835-1132</Link>
             </Typography>
         </Box>

@@ -4,9 +4,9 @@ import dayjs from 'dayjs'
 import ExperienceItem from 'components/ExperienceItem'
 
 const accomplishments = [
-    'Helped with the acquisition vetting process',
-    'Managed the Front-end team of 4 developers',
-    'Built the REST Api using Python and Django',
+    'Joined via acquisition of Reelio, contributing to full-stack feature development integrating Reelio\'s influencer marketing application into Fullscreen\'s creator economy platform',
+    'Managed the front-end team of 4 developers',
+    'Built the REST API using Python and Django',
     'Built the web client using React',
 ]
 

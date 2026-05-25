@@ -4,12 +4,13 @@ import dayjs from 'dayjs'
 import ExperienceItem from 'components/ExperienceItem'
 
 const accomplishments = [
-    'Directly managed and mentored a team of 7 engineers, conducting regular 1:1 meetings to foster professional growth and ensure project alignment',
-    'Implemented AI-assisted product cleansing process',
-    'Built Lightspeed and Square POS Integrations, supporting 58 retailers and processing 9,179 listing units valued at over $600,000',
-    'Engineered and built a comprehensive Order Management System (OMS), integrating Mirakl order ingestion and Monday.com to significantly improve order processing efficiency and accuracy',
-    'Developed a lead scoring system to effectively prioritize sales outreach, enhancing efficiency in acquiring new retailers',
-    'Won a hackathon for the successful Proof-of-Concept (POC) of the MaxRetail ReactNative mobile app',
+    'Promoted to Director of Engineering, leading and mentoring a team of 7 engineers through regular 1:1s, performance reviews, and technical direction',
+    'Drove adoption of AI-assisted development tooling (Claude Code) across the engineering team, improving developer productivity',
+    'Architected and built a proof-of-concept for an AI-augmented product enhancement pipeline, automating the cleansing and enrichment of retailer product data with human-in-the-loop validation, leveraging prompt engineering to optimize LLM output quality',
+    'Built internal MCP servers to give engineering and business teams direct, structured access to MaxRetail data',
+    'Built and scaled Lightspeed and Square POS integrations into the MaxRetail platform, supporting 217 retailers with active inventory and processing ~28.5K listing units across ~$3.02M in listed inventory value',
+    'Engineered a comprehensive Order Management System (OMS) integrating Mirakl and Monday.com, automating 70% of company order processing',
+    'Built a lead scoring system that parsed and ranked 5 million Shopify stores to surface and prioritize sales targets, resulting in hundreds of net-new retailers onboarded',
 ]
 
 const startDate = dayjs('2022-09')
@@ -18,7 +19,7 @@ const endDate = dayjs()
 const ExperienceMaxRetail: FunctionComponent = () => (
     <ExperienceItem
         company="Max Retail"
-        position="Principal Software Engineer"
+        position="Director of Engineering"
         startDate={startDate}
         endDate={endDate}
         summary="The easiest way to sell your leftover inventory"
