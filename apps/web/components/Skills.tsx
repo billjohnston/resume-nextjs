@@ -6,7 +6,7 @@ import Box from '@mui/material/Box'
 import ResumeSection from 'components/ResumeSection'
 
 const skillGroups = [
-    { label: 'Cloud & Infra', skills: ['AWS', 'AWS CDK', 'Cloudformation', 'Lambda', 'ECS', 'SQS', 'Api Gateway', 'Step Functions', 'DynamoDB', 'Cognito', 'Docker', 'Elasticsearch'] },
+    { label: 'Cloud & Infra', skills: ['AWS', 'AWS CDK', 'Cloudformation', 'Lambda', 'ECS', 'SQS', 'Api Gateway', 'Step Functions', 'DynamoDB', 'Cognito', 'Docker', 'Elasticsearch', 'Databricks'] },
     { label: 'Languages', skills: ['TypeScript', 'Javascript', 'Node.js', 'Bun', 'Python', 'Django', 'Jest', 'TDD'] },
     { label: 'Frontend', skills: ['React', 'React Native', 'Expo'] },
     { label: 'AI', skills: ['Claude API', 'Claude Code', 'MCP', 'LLM Integration', 'Prompt Engineering', 'AI-Assisted Development'] },
